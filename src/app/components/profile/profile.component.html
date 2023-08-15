@@ -1,0 +1,305 @@
+
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NKDMSK6" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    
+    <div class="wrapper ">
+      <div class="sidebar" data-color="purple" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
+        
+        <div class="content">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-md-6 mx-auto">
+                <div class="card">
+                  <div class="card-header card-header-primary">
+                    <h4 class="card-title">Profili Düzenle</h4>
+                  </div>
+                  <div class="card-body">
+                    <form [formGroup]="changePasswordForm">
+                      <div class="row">
+                        <div class="col-md-10 mx-auto">
+                          <div class="input-group input-group-outline my-3" (click)="clickEv1($event)"
+                          [ngClass]="status1 ? 'is-focused' : 'danger'">
+                            <label class="form-label">Eski Şifre</label>
+                            <input type="password" class="form-control"
+                            formControlName="oldPassword" required [type]="oldPassword ? 'password':'text'">
+                          </div>
+                        </div>
+                      </div>
+                      <mat-error *ngIf="changePasswordForm.controls.oldPassword.touched && changePasswordForm.controls.oldPassword.invalid">
+                        <span *ngIf="changePasswordForm.controls.oldPassword.errors.required" style="display:block;color:red;text-align: right;">Zorunlu alan</span>
+                      </mat-error>
+
+                      <div class="row">
+                        <div class="col-md-10 mx-auto">
+                          <div class="input-group input-group-outline my-3" (click)="clickEv2($event)"
+                          [ngClass]="status2 ? 'is-focused' : 'danger'">
+                            <label class="form-label">Yeni Şifre</label>
+                            <input type="password" class="form-control"
+                            formControlName="newPassword" required [type]="newPassword ? 'password':'text'">
+                          </div>
+                        </div>
+                      </div>
+                      <mat-error *ngIf="changePasswordForm.controls.newPassword.touched && changePasswordForm.controls.newPassword.invalid">
+                        <span *ngIf="changePasswordForm.controls.newPassword.errors.required" style="display:block;color:red;text-align: right;">Zorunlu alan</span>
+                      </mat-error>
+
+                      <div class="row">
+                        <div class="col-md-10 mx-auto">
+                          <div class="input-group input-group-outline my-3" (click)="clickEv3($event)"
+                          [ngClass]="status3 ? 'is-focused' : 'danger'">
+                            <label class="form-label">Şifre Doğrulama</label>
+                            <input type="password" class="form-control"
+                            formControlName="confirmPassword" required [type]="confirmPassword ? 'password':'text'">
+                          </div>
+                        </div>
+                      </div>
+                      <mat-error *ngIf="changePasswordForm.controls.confirmPassword.touched && changePasswordForm.controls.confirmPassword.invalid">
+                        <span *ngIf="changePasswordForm.controls.confirmPassword.errors.required" style="display:block;color:red;text-align: right;">Zorunlu alan</span>
+                      </mat-error>
+                      <mat-hint *ngIf="validateSubmit() && !(changePasswordForm.controls.confirmPassword.invalid)">
+                        <span>New Password & Confirm Password doesn't match.</span>
+                      </mat-hint>
+                     <br>
+                     <div class="col-md-2 mx-auto">
+                      <button type="submit" class="btn btn-primary pull-right"
+                      (click)="handlePasswordChangeSubmit()" [disabled]="validateSubmit() || !(changePasswordForm.valid) && changePasswordForm.dirty"
+                      >Güncelle</button>
+                    </div>
+                      <div class="clearfix"></div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            
+            </div>
+          </div>
+        </div>
+     
+      <div class="ps-scrollbar-x-rail" style="left: 0px; bottom: 0px;"><div class="ps-scrollbar-x" tabindex="0" style="left: 0px; width: 0px;"></div></div><div class="ps-scrollbar-y-rail" style="top: 0px; right: 0px;"><div class="ps-scrollbar-y" tabindex="0" style="top: 0px; height: 0px;"></div></div></div>
+    </div>
+    <div class="fixed-plugin">
+      <div class="dropdown show-dropdown">
+
+        <ul class="dropdown-menu">
+          <li class="header-title"> Sidebar Filters</li>
+          <li class="adjustments-line">
+            <a href="javascript:void(0)" class="switch-trigger active-color">
+              <div class="badge-colors ml-auto mr-auto">
+                <span class="badge filter badge-purple" data-color="purple"></span>
+                <span class="badge filter badge-azure" data-color="azure"></span>
+                <span class="badge filter badge-green" data-color="green"></span>
+                <span class="badge filter badge-warning" data-color="orange"></span>
+                <span class="badge filter badge-danger" data-color="danger"></span>
+                <span class="badge filter badge-rose active" data-color="rose"></span>
+              </div>
+              <div class="clearfix"></div>
+            </a>
+          </li>
+          <li class="header-title">Images</li>
+          <li class="active">
+            <a class="img-holder switch-trigger" href="javascript:void(0)">
+              <img src="../assets/img/sidebar-1.jpg" alt="">
+            </a>
+          </li>
+          <li>
+            <a class="img-holder switch-trigger" href="javascript:void(0)">
+              <img src="../assets/img/sidebar-2.jpg" alt="">
+            </a>
+          </li>
+          <li>
+            <a class="img-holder switch-trigger" href="javascript:void(0)">
+              <img src="../assets/img/sidebar-3.jpg" alt="">
+            </a>
+          </li>
+          <li>
+            <a class="img-holder switch-trigger" href="javascript:void(0)">
+              <img src="../assets/img/sidebar-4.jpg" alt="">
+            </a>
+          </li>
+          <li class="button-container">
+            <a href="https://www.creative-tim.com/product/material-dashboard" target="_blank" class="btn btn-primary btn-block">Free Download</a>
+          </li>
+          
+          <li class="button-container">
+            <a href="https://demos.creative-tim.com/material-dashboard/docs/2.1/getting-started/introduction.html" target="_blank" class="btn btn-default btn-block">
+              View Documentation
+            </a>
+          </li>
+          <li class="button-container github-star">
+            <span></span>
+          </li>
+          <li class="header-title">Thank you for 95 shares!</li>
+          <li class="button-container text-center">
+        
+          </li>
+        </ul>
+      </div>
+    </div>
+    
+    <script src="../assets/js/core/jquery.min.js"></script>
+    <script src="../assets/js/core/popper.min.js"></script>
+    <script src="../assets/js/core/bootstrap-material-design.min.js"></script>
+    <script src="../assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
+    
+    <script src="../assets/js/plugins/moment.min.js"></script>
+    
+    <script src="../assets/js/plugins/sweetalert2.js"></script>
+    
+    <script src="../assets/js/plugins/jquery.validate.min.js"></script>
+    
+    <script src="../assets/js/plugins/jquery.bootstrap-wizard.js"></script>
+    
+    <script src="../assets/js/plugins/bootstrap-selectpicker.js"></script>
+    
+    <script src="../assets/js/plugins/bootstrap-datetimepicker.min.js"></script>
+    
+    <script src="../assets/js/plugins/jquery.dataTables.min.js"></script>
+    
+    <script src="../assets/js/plugins/bootstrap-tagsinput.js"></script>
+    
+    <script src="../assets/js/plugins/jasny-bootstrap.min.js"></script>
+    
+    <script src="../assets/js/plugins/fullcalendar.min.js"></script>
+    
+    <script src="../assets/js/plugins/jquery-jvectormap.js"></script>
+    
+    <script src="../assets/js/plugins/nouislider.min.js"></script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"></script>
+    
+    <script src="../assets/js/plugins/arrive.min.js"></script>
+    
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB2Yno10-YTnLjjn_Vtk0V8cdcY5lC4plU"></script>
+    
+    <script async="" defer="" src="https://buttons.github.io/buttons.js"></script>
+    
+    <script src="../assets/js/plugins/chartist.min.js"></script>
+    
+    <script src="../assets/js/plugins/bootstrap-notify.js"></script>
+    
+    <script src="../assets/js/material-dashboard.min.js?v=2.1.2" type="text/javascript"></script>
+    
+    <script src="../assets/demo/demo.js"></script>
+   
+    
+    <script src="../assets/demo/jquery.sharrre.js"></script>
+    <script src="../../../assets/js/material-dashboard.min.js"></script>
+    <script>
+      $(document).ready(function() {
+  
+        $('#facebook').sharrre({
+          share: {
+            facebook: true
+          },
+          enableHover: false,
+          enableTracking: false,
+          enableCounter: false,
+          click: function(api, options) {
+            api.simulateClick();
+            api.openPopup('facebook');
+          },
+          template: '<i class="fab fa-facebook-f"></i> Facebook',
+          url: 'https://demos.creative-tim.com/material-dashboard/examples/dashboard.html'
+        });
+  
+        $('#google').sharrre({
+          share: {
+            googlePlus: true
+          },
+          enableCounter: false,
+          enableHover: false,
+          enableTracking: true,
+          click: function(api, options) {
+            api.simulateClick();
+            api.openPopup('googlePlus');
+          },
+          template: '<i class="fab fa-google-plus"></i> Google',
+          url: 'https://demos.creative-tim.com/material-dashboard/examples/dashboard.html'
+        });
+  
+        $('#twitter').sharrre({
+          share: {
+            twitter: true
+          },
+          enableHover: false,
+          enableTracking: false,
+          enableCounter: false,
+          buttons: {
+            twitter: {
+              via: 'CreativeTim'
+            }
+          },
+          click: function(api, options) {
+            api.simulateClick();
+            api.openPopup('twitter');
+          },
+          template: '<i class="fab fa-twitter"></i> Twitter',
+          url: 'https://demos.creative-tim.com/material-dashboard/examples/dashboard.html'
+        });
+  
+  
+  
+        // Facebook Pixel Code Don't Delete
+        ! function(f, b, e, v, n, t, s) {
+          if (f.fbq) return;
+          n = f.fbq = function() {
+            n.callMethod ?
+              n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+          };
+          if (!f._fbq) f._fbq = n;
+          n.push = n;
+          n.loaded = !0;
+          n.version = '2.0';
+          n.queue = [];
+          t = b.createElement(e);
+          t.async = !0;
+          t.src = v;
+          s = b.getElementsByTagName(e)[0];
+          s.parentNode.insertBefore(t, s)
+        }(window,
+          document, 'script', '//connect.facebook.net/en_US/fbevents.js');
+  
+        try {
+          fbq('init', '111649226022273');
+          fbq('track', "PageView");
+  
+        } catch (err) {
+          console.log('Facebook Track Error:', err);
+        }
+  
+      });
+    </script>
+    <script>
+      // Facebook Pixel Code Don't Delete
+      ! function(f, b, e, v, n, t, s) {
+        if (f.fbq) return;
+        n = f.fbq = function() {
+          n.callMethod ?
+            n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+        };
+        if (!f._fbq) f._fbq = n;
+        n.push = n;
+        n.loaded = !0;
+        n.version = '2.0';
+        n.queue = [];
+        t = b.createElement(e);
+        t.async = !0;
+        t.src = v;
+        s = b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t, s)
+      }(window,
+        document, 'script', '//connect.facebook.net/en_US/fbevents.js');
+  
+      try {
+        fbq('init', '111649226022273');
+        fbq('track', "PageView");
+  
+      } catch (err) {
+        console.log('Facebook Track Error:', err);
+      }
+    </script>
+    <noscript>
+      <img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=111649226022273&ev=PageView&noscript=1" />
+    </noscript>
+  <script defer="" src="https://static.cloudflareinsights.com/beacon.min.js/v2b4487d741ca48dcbadcaf954e159fc61680799950996" integrity="sha512-D/jdE0CypeVxFadTejKGTzmwyV10c1pxZk/AqjJuZbaJwGMyNHY3q/mTPWqMUnFACfCTunhZUVcd4cV78dK1pQ==" data-cf-beacon="{&quot;rayId&quot;:&quot;7b9eadb2cf42da2e&quot;,&quot;version&quot;:&quot;2023.3.0&quot;,&quot;r&quot;:1,&quot;token&quot;:&quot;1b7cbb72744b40c580f8633c6b62637e&quot;,&quot;si&quot;:100}" crossorigin="anonymous"></script>
+  
+  

@@ -1,0 +1,44 @@
+<!--<p>{{data.firma}}</p>-->
+<button mat-icon-button style="float:right;" matDialogClose>
+    <mat-icon>close</mat-icon>
+</button>
+<form [formGroup]="financeAddForm">
+<mat-dialog-content class="mat-dialog-content" >
+    <header><h3>Düzenle</h3></header>
+    <p><mat-form-field>
+        <input matInput placeholder="Firma"
+        formControlName="firma">
+        <mat-icon matSuffix>shop</mat-icon>
+    </mat-form-field></p>
+    <p><mat-form-field>
+        <input matInput placeholder="Ödeme Alan"
+        formControlName="odemeAlan">
+        <mat-icon matSuffix>person</mat-icon>
+    </mat-form-field></p>
+    <p><mat-form-field>
+        <input matInput placeholder="Ödeme Yapan"
+        formControlName="odemeYapan">
+        <mat-icon matSuffix>person</mat-icon>
+    </mat-form-field></p>
+    <p><mat-form-field>
+        <input matInput placeholder="Son Ödeme Tarihi" 
+        formControlName="sonOdemeTarihi">
+        <mat-icon matSuffix>date_range</mat-icon>
+    </mat-form-field></p>
+    <p><mat-form-field>
+        <input matInput placeholder="Toplam Alacak"
+        formControlName="toplamAlacak">
+        <mat-icon matSuffix>attach_money</mat-icon>
+    </mat-form-field></p>
+    <p><mat-form-field>
+        <input matInput placeholder="Toplam Ödenen" 
+        formControlName="toplamOdenen">
+        <mat-icon matSuffix>attach_money</mat-icon>
+    </mat-form-field></p>
+</mat-dialog-content>
+</form>
+<mat-dialog-actions align="end">
+    <button mat-raised-button color="primary" (click)="handleSubmit()">Düzenle</button>
+    <button mat-raised-button color="warn" matDialogClose>Kapat</button>
+</mat-dialog-actions>
+

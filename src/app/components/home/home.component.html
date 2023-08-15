@@ -1,0 +1,277 @@
+<div class="container-fluid py-4">
+  <div class="row mb-4">
+    <div class="col-lg-9 col-md-6 mb-md-0 mb-4">
+      <div class="card">
+        <div class="card-header pb-0">
+          <div class="row">
+            <div class="col-lg-6 col-7">
+              <h6>Müşteriler</h6>
+              <p class="text-sm mb-0">
+                <i class="fa fa-check text-info" aria-hidden="true"></i>
+                <span class="font-weight-bold ms-1">{{total}} </span> müşteri bulunuyor.
+              </p>
+            </div>
+            <div class="col-lg-6 col-5 my-auto text-end">
+              <div class="dropdown float-lg-end pe-4">
+                <a class="cursor-pointer" id="dropdownTable" data-bs-toggle="dropdown" aria-expanded="false">
+                  
+                </a>
+             
+           
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card-body px-0 pb-2" >
+          <div class="table-responsive">
+            <table mat-table [dataSource]="dataSource" class="table align-items-center mb-0"
+            matSort #empSort="matSort">
+              <div class="data-table">
+                <ng-container matColumnDef="firma">
+                  <th mat-header-cell class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"
+                    *matHeaderCellDef mat-sort-header>Firma</th>
+                  <td mat-cell *matCellDef="let element">{{element.firma}}</td>
+                </ng-container>
+                <ng-container matColumnDef="aciklama" >
+                  <th mat-header-cell class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"
+                    *matHeaderCellDef>aciklama</th>
+                  <td mat-cell *matCellDef="let element">{{element.aciklama}}</td>
+                </ng-container>
+                <ng-container matColumnDef="adres">
+                  <th mat-header-cell class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"
+                    *matHeaderCellDef>Adres</th>
+                  <td mat-cell *matCellDef="let element">{{element.adres}}</td>
+                </ng-container>
+                <ng-container matColumnDef="firma_email">
+                  <th mat-header-cell class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"
+                    *matHeaderCellDef>Firma Email</th>
+                  <td mat-cell *matCellDef="let element">{{element.firmaEmail}}</td>
+                </ng-container>
+                <ng-container matColumnDef="firma_telefon">
+                  <th mat-header-cell class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"
+                    *matHeaderCellDef>Firma Telefon</th>
+                  <td mat-cell *matCellDef="let element">{{element.firmaTelefon}}</td>
+                </ng-container>
+                <ng-container matColumnDef="il">
+                  <th mat-header-cell class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"
+                    *matHeaderCellDef>İl</th>
+                  <td mat-cell *matCellDef="let element">{{element.il}}</td>
+                </ng-container>
+                <ng-container matColumnDef="ilce">
+                  <th mat-header-cell class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"
+                    *matHeaderCellDef>İlçe</th>
+                  <td mat-cell *matCellDef="let element">{{element.ilce}}</td>
+                </ng-container>
+                <ng-container matColumnDef="musteri_kodu">
+                  <th mat-header-cell class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"
+                    *matHeaderCellDef>Musteri Kodu</th>
+                  <td mat-cell *matCellDef="let element">{{element.musteriKodu}}</td>
+                </ng-container>
+                <ng-container matColumnDef="tckn_vergi_no">
+                  <th mat-header-cell class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"
+                    *matHeaderCellDef>Tckn / Vergi No</th>
+                  <td mat-cell *matCellDef="let element">{{element.tcknVergiNo}}</td>
+                </ng-container>
+                <ng-container matColumnDef="vergi_dairesi">
+                  <th mat-header-cell class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"
+                    *matHeaderCellDef>Vergi Dairesi</th>
+                  <td mat-cell *matCellDef="let element">{{element.vergiDairesi}}</td>
+                </ng-container>
+                <ng-container matColumnDef="yetkili_ad_soyad">
+                  <th mat-header-cell class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"
+                    *matHeaderCellDef>Yetkili Ad Soyad</th>
+                  <td mat-cell *matCellDef="let element">{{element.yetkiliAdSoyad}}</td>
+                </ng-container>
+                 <ng-container matColumnDef="yetkili_email">
+                  <th mat-header-cell class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"
+                    *matHeaderCellDef>Yetkili Email</th>
+                  <td mat-cell *matCellDef="let element">{{element.yetkiliEmail}}</td>
+                </ng-container>
+                <ng-container matColumnDef="yetkili_telefon">
+                  <th mat-header-cell class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"
+                    *matHeaderCellDef>Yetkili Telefon</th>
+                  <td mat-cell *matCellDef="let element">{{element.yetkiliTelefon}}</td>
+                </ng-container>
+                <ng-container matColumnDef="duzenle">
+                  <th mat-header-cell class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"
+                    *matHeaderCellDef>Düzenle</th>
+                  <td mat-cell *matCellDef="let element">
+                        <a class="cursor-pointer" id="dropdownTable" data-bs-toggle="dropdown" aria-expanded="false">
+                          <i class="fa fa-ellipsis-v text-secondary"></i>
+                        </a>
+                        <ul class="dropdown-menu px-2 py-3 ms-sm-n4 ms-n5" aria-labelledby="dropdownTable">
+                          <li><button class="dropdown-item border-radius-md" (click)="deleteSubmit(element)">Sil</button></li>
+                          <li><button class="dropdown-item border-radius-md" (click)="updateSubmit(element)">Guncelle</button></li>
+                          <li><a class="dropdown-item border-radius-md" routerLink="{{element.id}}/bid">Teklif Ekle</a></li>
+                        </ul>
+                  </td>
+                </ng-container>
+              </div>
+              <tr mat-header-row *matHeaderRowDef="displayedColumns;sticky:true"></tr>
+              <tr mat-row *matRowDef="let row;columns:displayedColumns;"></tr>
+            </table>
+           <mat-paginator #paginator [pageSizeOptions]="[10]" showFirstLastButtons
+           hidePageSize ></mat-paginator>
+          </div>
+          
+        </div>
+        
+      </div>
+    </div>
+    <div class="col-lg-3 col-md-6" style="max-height:1088px;">
+      <div class="card h-100">
+        <div class="card-header pb-0">
+          <i class="material-icons text-success text-gradient">account_box</i>
+          <h5 style="display:contents;" id="formHead">&emsp;Müşteri Ekle</h5>
+        </div>
+        <div class="card-body p-3">
+          <form  class="text-start" role="form" [formGroup]="customerAddForm">
+          <div class="timeline timeline-one-side" id="rightSidebar" >
+
+            <div class="timeline-block mb-3">
+              <span class="timeline-step">
+                <i class="material-icons text-success text-gradient">comment</i>
+              </span>
+              <div class="timeline-content input-group input-group-outline my-2" (click)="clickEv1($event)"
+              [ngClass]="status1 ? 'is-focused' : 'danger'">
+                  <label class="form-label">Açıklama</label>
+                  <input class="form-control" matInput formControlName="aciklama">
+              </div>
+            </div>
+            <div class="timeline-block mb-3">
+              <span class="timeline-step">
+                <i class="material-icons text-success text-gradient">location_on</i>
+              </span>
+              <div class="timeline-content input-group input-group-outline my-2" (click)="clickEv2($event)"
+              [ngClass]="status2 ? 'is-focused' : 'danger'">
+                  <label class="form-label">Adres</label>
+                  <input class="form-control" matInput formControlName="adres">
+              </div>
+            </div>
+            <div class="timeline-block mb-3">
+              <span class="timeline-step">
+                <i class="material-icons text-success text-gradient">add_business</i>
+              </span>
+              <div class="timeline-content input-group input-group-outline my-2" (click)="clickEv3($event)"
+              [ngClass]="status3 ? 'is-focused' : 'danger'">
+                  <label class="form-label">Firma</label>
+                  <input class="form-control" matInput formControlName="firma">
+              </div>
+            </div>
+            <div class="timeline-block mb-3">
+              <span class="timeline-step">
+                <i class="material-icons text-success text-gradient">mail</i>
+              </span>
+              <div class="timeline-content input-group input-group-outline my-2" (click)="clickEv4($event)"
+              [ngClass]="status4 ? 'is-focused' : 'danger'">
+                  <label class="form-label">Firma Email</label>
+                  <input class="form-control" matInput formControlName="firmaEmail">
+              </div>
+            </div>
+            <div class="timeline-block mb-3">
+              <span class="timeline-step">
+                <i class="material-icons text-success text-gradient">call</i>
+              </span>
+              <div class="timeline-content input-group input-group-outline my-2" (click)="clickEv5($event)"
+              [ngClass]="status5 ? 'is-focused' : 'danger'">
+                  <label class="form-label">Firma Telefon</label>
+                  <input class="form-control" matInput formControlName="firma_telefon">
+              </div>
+            </div>
+            <div class="timeline-block mb-3">
+              <span class="timeline-step">
+                <i class="material-icons text-success text-gradient">home</i>
+              </span>
+              <div class="timeline-content input-group input-group-outline my-2" (click)="clickEv6($event)"
+              [ngClass]="status6 ? 'is-focused' : 'danger'">
+                  <label class="form-label">İl</label>
+                  <input class="form-control" matInput formControlName="il">
+              </div>
+            </div>
+            <div class="timeline-block mb-3">
+              <span class="timeline-step">
+                <i class="material-icons text-success text-gradient">home</i>
+              </span>
+              <div class="timeline-content input-group input-group-outline my-2" (click)="clickEv7($event)"
+              [ngClass]="status7 ? 'is-focused' : 'danger'">
+                  <label class="form-label">İlçe</label>
+                  <input class="form-control" matInput formControlName="ilce">
+              </div>
+            </div>
+            <div class="timeline-block mb-3">
+              <span class="timeline-step">
+                <i class="material-icons text-success text-gradient">perm_identity</i>
+              </span>
+              <div class="timeline-content input-group input-group-outline my-2" (click)="clickEv8($event)"
+              [ngClass]="status8 ? 'is-focused' : 'danger'">
+                  <label class="form-label">Müşteri Kodu</label>
+                  <input class="form-control" matInput formControlName="musteri_kodu">
+              </div>
+            </div>
+            <div class="timeline-block mb-3">
+              <span class="timeline-step">
+                <i class="material-icons text-success text-gradient">perm_identity</i>
+              </span>
+              <div class="timeline-content input-group input-group-outline my-2" (click)="clickEv9($event)"
+              [ngClass]="status9 ? 'is-focused' : 'danger'">
+                  <label class="form-label">Tckn / Vergi No</label>
+                  <input class="form-control" matInput formControlName="tckn_vergi_no">
+              </div>
+            </div> <div class="timeline-block mb-3">
+              <span class="timeline-step">
+                <i class="material-icons text-success text-gradient">account_balance</i>
+              </span>
+              <div class="timeline-content input-group input-group-outline my-2" (click)="clickEv10($event)"
+              [ngClass]="status10 ? 'is-focused' : 'danger'">
+                  <label class="form-label">Vergi Dairesi</label>
+                  <input class="form-control" matInput formControlName="vergi_dairesi">
+              </div>
+            </div>
+            <div class="timeline-block mb-3">
+              <span class="timeline-step">
+                <i class="material-icons text-success text-gradient">perm_identity</i>
+              </span>
+              <div class="timeline-content input-group input-group-outline my-2" (click)="clickEv11($event)"
+              [ngClass]="status11 ? 'is-focused' : 'danger'">
+                  <label class="form-label">Yetkili Ad Soyad</label>
+                  <input class="form-control" matInput formControlName="yetkili_ad_soyad">
+              </div>
+            </div>
+            <div class="timeline-block mb-3">
+              <span class="timeline-step">
+                <i class="material-icons text-success text-gradient">email</i>
+              </span>
+              <div class="timeline-content input-group input-group-outline my-2" (click)="clickEv12($event)"
+              [ngClass]="status12 ? 'is-focused' : 'danger'">
+                  <label class="form-label">Yetkili Email</label>
+                  <input class="form-control" matInput formControlName="yetkili_email">
+              </div>
+            </div>
+            <div class="timeline-block mb-3">
+              <span class="timeline-step">
+                <i class="material-icons text-success text-gradient">call</i>
+              </span>
+              <div class="timeline-content input-group input-group-outline my-2" (click)="clickEv13($event)"
+              [ngClass]="status13 ? 'is-focused' : 'danger'">
+                  <label class="form-label">Yetkili Telefon</label>
+                  <input class="form-control" matInput formControlName="yetkili_telefon">
+              </div>
+            </div>
+          </div>
+        </form>
+        </div>
+        <div class="text-center">
+          <button type="submit" id="btnAdd" class="btn bg-gradient-primary w-50 my-4 mb-2"
+          (click)="handleSubmit()" [disabled]="!(customerAddForm.valid && customerAddForm.dirty)">
+            <mat-icon style="font-size:21px;">add_circle</mat-icon>Ekle</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer class="footer py-4  ">
+    <div class="container-fluid">
+      <div class="row align-items-center justify-content-lg-between">
+      </div>
+    </div>
+  </footer>
+</div>

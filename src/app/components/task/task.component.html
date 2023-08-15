@@ -1,0 +1,102 @@
+<div class="container-fluid py-4">
+    <div class="row mb-4">
+      <div class="col-lg-12 col-md-9 mb-md-0 mb-4">
+        <div class="card">
+          <div class="card-header pb-0">
+            <div class="row">
+              <div class="col-lg-6 col-7">
+                <h6>İşler</h6>
+                <p class="text-sm mb-0">
+                  <i class="fa fa-check text-info" aria-hidden="true"></i>
+                  <span class="font-weight-bold ms-1">{{total}} </span> iş bulunuyor.
+                </p>
+              </div>
+              <div class="col-lg-6 col-5 my-auto text-end">
+                
+              </div>
+            </div>
+          </div>
+          <div class="card-body px-0 pb-2">
+  
+            <div class="table-responsive">
+              <table mat-table [dataSource]="dataSource" class="table align-items-center mb-0">
+                <div class="data-table">
+                  <ng-container matColumnDef="adet">
+                    <th mat-header-cell class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"
+                      *matHeaderCellDef>Adet</th>
+                    <td mat-cell *matCellDef="let element">{{element.adet}}</td>
+                  </ng-container>
+                  <ng-container matColumnDef="birim_fiyat" >
+                    <th mat-header-cell class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"
+                      *matHeaderCellDef>Birim Fiyat</th>
+                    <td mat-cell *matCellDef="let element">{{element.birimFiyat | currency:'TRY':'symbol-narrow':'1.2-2'}}</td>
+                  </ng-container>
+                  <ng-container matColumnDef="boy">
+                    <th mat-header-cell class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"
+                      *matHeaderCellDef>Boy</th>
+                    <td mat-cell *matCellDef="let element">{{element.boy}}</td>
+                  </ng-container>
+                  <ng-container matColumnDef="durum">
+                    <th mat-header-cell class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"
+                      *matHeaderCellDef>Durum</th>
+                    <td mat-cell *matCellDef="let element">{{element.durum}}</td>
+                  </ng-container>
+                  <ng-container matColumnDef="en">
+                    <th mat-header-cell class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"
+                      *matHeaderCellDef>En</th>
+                    <td mat-cell *matCellDef="let element">{{element.en}}</td>
+                  </ng-container>
+                  <ng-container matColumnDef="firma">
+                    <th mat-header-cell class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"
+                      *matHeaderCellDef>firma</th>
+                    <td mat-cell *matCellDef="let element">{{element.firma}}</td>
+                  </ng-container>
+                  <ng-container matColumnDef="is_icerigi">
+                    <th mat-header-cell class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"
+                      *matHeaderCellDef>iş içerigi</th>
+                    <td mat-cell *matCellDef="let element">{{element.isIcerigi}}</td>
+                  </ng-container>
+                  <ng-container matColumnDef="siparis_tarihi">
+                    <th mat-header-cell class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"
+                      *matHeaderCellDef>Siparis Tarihi</th>
+                    <td mat-cell *matCellDef="let element">{{element.siparisTarihi}}</td>
+                  </ng-container>
+                  <ng-container matColumnDef="tutar">
+                    <th mat-header-cell class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"
+                      *matHeaderCellDef>Tutar</th>
+                    <td mat-cell *matCellDef="let element">{{element.tutar | currency:'TRY':'symbol-narrow':'1.2-2'}}</td>
+                  </ng-container>
+                 
+                  <ng-container matColumnDef="duzenle">
+                    <th mat-header-cell class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"
+                      *matHeaderCellDef>Düzenle</th>
+                    <td mat-cell *matCellDef="let element">
+                          <a class="cursor-pointer" id="dropdownTable" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fa fa-ellipsis-v text-secondary"></i>
+                          </a>
+                          <ul class="dropdown-menu px-2 py-3 ms-sm-n4 ms-n5" aria-labelledby="dropdownTable">
+                            <li><button class="dropdown-item border-radius-md" (click)="deleteSubmit(element)">Sil</button></li>
+                            <li><button class="dropdown-item border-radius-md" (click)="moveSubmit(element)">Teklif'e aktar</button></li>
+                            <li><a class="dropdown-item border-radius-md" routerLink="{{element.id}}/finance">Finansal kayıt ekle</a></li>
+                          </ul>
+                  
+                    </td>
+                  </ng-container>
+                </div>
+                <tr mat-header-row *matHeaderRowDef="displayedColumns;sticky:true"></tr>
+                <tr mat-row *matRowDef="let row;columns:displayedColumns;"></tr>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <footer class="footer py-4  ">
+      <div class="container-fluid">
+        <div class="row align-items-center justify-content-lg-between">
+        </div>
+      </div>
+    </footer>
+  </div>
+  

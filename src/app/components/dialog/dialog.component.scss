@@ -1,0 +1,8 @@
+::ng-deep .cdk-overlay-pane {
+    align-items: center;
+  }
+.mat-dialog-content{
+    overflow-y: hidden !important;
+    display:grid;
+    justify-content: center;
+}

@@ -1,0 +1,11 @@
+{
+    "/musteri": {
+      "target": "http://localhost:8082",
+      "pathRewrite":{
+        "^/musteri":""
+      },
+      "changeOrigin":false,
+      "secure":false
+      
+    }
+  }

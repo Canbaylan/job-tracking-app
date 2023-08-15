@@ -1,0 +1,20 @@
+table {
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    min-width: 500px;
+  }
+th.mat-header-cell {
+    text-align: left;
+    max-width: 200px;
+  }
+td{
+    text-align: center;
+    font-size:13px;
+  }
+.timeline-content{
+  max-width: 330px;
+}
+#rightSide{
+    max-height:808px;
+}
